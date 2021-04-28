@@ -14,7 +14,7 @@
     <ion-card-content>
       <ion-list>
         <ion-radio-group [(ngModel)]="selectedOption">
-          <ion-item *ngFor="let option of questions[currentQuestion].options; let i = index;">
+          <ion-item *ngFor="let option of questions[currentQuestion].options; let i = index;"> <!--para cada opção da lista que questions. Para pegar o indice de cada opção de resposta usa o let i-->
             <ion-radio [value]="i" slot="start"></ion-radio>
             <ion-label>{{option}}</ion-label>
           </ion-item>
@@ -30,12 +30,12 @@
 
   <ng-template #resultCard>
     <ion-card>
-      <img [src]="results[resultIndex].img" alt="">
+      <img [src]="results[resultIndex].img" alt=""><!--pega o resultado, e mostra a imagem correspondente-->
       <ion-card-header>
-        <ion-card-title>Você deveria viajar para {{results[resultIndex].title}}</ion-card-title>
+        <ion-card-title>Você deveria viajar para {{results[resultIndex].title}}</ion-card-title> <!--pega o resultado, e mostra a título correspondente-->
       </ion-card-header>
       <ion-card-content>
-        {{results[resultIndex].description}}
+        {{results[resultIndex].description}} <!--pega o resultado, e mostra a descrição correspondente-->
         <ion-button (click)="confirmResetQuiz()" expand="block" class="ion-margin-top">
           <ion-icon slot="start" name="refresh"></ion-icon>
           Refazer Quiz

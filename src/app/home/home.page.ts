@@ -74,7 +74,7 @@ export class HomePage {
     this.currentQuestion++;
     this.selectedOption = null; //para a próxima pergunta, nenhuma opção deve estar selecionada
 
-    this.showToast();
+    this.showToast(); //mostra a alert com o numero de perguntas respondidas
 
     if (this.currentQuestion >= this.questions.length) {
       this.calculateResult();
@@ -99,10 +99,10 @@ export class HomePage {
     this.resultIndex = indiceMaximo;
   }
 
-  private async showToast() {
+  private async showToast() { //alerta de x de x perguntas respondidas, na parte inferior da tela
     const toast = await this.toastCtrl.create({
       header: this.currentQuestion + '/' + this.questions.length + ' perguntas respondidas',
-      duration: 500
+      duration: 500 //duração da mensagem na tela
     });
     toast.present();
   }
