@@ -1,54 +1,13 @@
 <ion-header>
-  <ion-toolbar color = "primary"> <!-- a cor primária da aplicação-->
-              <!-- para mudar basta ir em color generator, 
-              mudar copiar o código e colar em variables-->
+  <ion-toolbar>
     <ion-title>
-    Perfil do motorista
+      Injeção de Dependência e Promises
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding"> <!-- colocada para dar margem interna-->
-  <!-- para saber isso  é só olhar na documentação-->
-  <ion-item>
-    <ion-label position="floating">Floating Label</ion-label>
-    <ion-input></ion-input>
-    <ion-icon name="search-sharp" slot="end"></ion-icon>
-    </ion-item>
-    
-  
-
-  <ion-card>
-    <ion-card-header>
-      <ion-row class= "ion-align-items-center">
-        <ion-col size="auto"> <!--dentro de size pode colocar qualquer numero de 1 a 12-->
-          <ion-avatar>
-            <img src="https://scontent.fcgh17-1.fna.fbcdn.net/v/t1.0-9/145038625_466967274311216_3685909118042895819_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=AzJHE22Lgl0AX8nPpkO&_nc_ht=scontent.fcgh17-1.fna&oh=88e05723413b78ae2ac01df118218d34&oe=606F751D" alt="">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <ion-card-title>Isabella Barão</ion-card-title>
-          <ion-card-subtitle>Motorista há 3 anos</ion-card-subtitle>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        In the beginning the Universe was created.
-        This has made a lot of people very angry and
-        been widely regarded as a bad move.
-      </p>
-      <ion-grid>
-        <ion-row class= "ion-align-items-center">
-          <ion-col size="auto" class="ion-align-items-center">
-            <ion-badge color="primary">5.0 <ion-icon name="star-sharp"></ion-icon></ion-badge>
-          </ion-col>
-          <ion-col>
-            <ion-text color="medium">7.40K avaliações</ion-text>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-
+<ion-content>
+  <ion-button (click)="mostrarAlerta()" spand ="block">
+    Alerta
+  </ion-button>
 </ion-content>
