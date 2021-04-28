@@ -1,20 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Lista de Produtos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-lis>
+    <ion-item *ngFor="let delivery of deliveries">
+      <!--Vai criar uma lista com cada delivery e guardar em deliveries-->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <!-- OPÇÃO para trocar os icones: <ion-icon slot="end" [name]="delivery.sedex ? 'airplane' : 'bicycle'"></ion-icon>-->
+      <ion-icon slot="end" name="airplane" *ngIf="delivery.sedex; else bicicleta"></ion-icon>
+      <!--O icone de avião só vai aparecer se a entrega for via sedex-->
+      <ng-template #bicicleta>
+        <ion-icon slot="end" name="bicycle"></ion-icon>
+        <!-- quando não for entrega sedex vai aparecer o icone da bicicleta-->
+      </ng-template>
+      <ion-label>
+        <h2>{{delivery.name}}</h2>
+        <ion-text color="danger" *ngIf="delivery.daysSinceBought > delivery.estimatedDaysToDeliver">
+          <p>
+            O pedido está atrasado
+          </p>
+        </ion-text>
+        <!--Só vai aparecer que o pedido está atrasado se os dias desde a compra for maior que a data estimada para entrega-->
+
+        <div [ngSwitch]="delivery.status">
+          <p *ngSwitchCase="'preparing'"> Preparando pedido. </p>
+          <p *ngSwitchCase="'onRoute'"> Pedido a caminho </p>
+          <p *ngSwitchCase="'delivered'"> Pedido entregue </p>
+          <p *ngSwitchCase="'finished'"> Pedido finalizado </p>
+          <p *ngSwitchDefault> O que aconteceu??? </p>
+        </div>
+        <!--Depedendo do status do pedido, uma mensagem será exibida na tela do usuário-->
+      </ion-label>
+    </ion-item>
+  </ion-lis>
 </ion-content>
