@@ -1,20 +1,119 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home Page
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class = "ion-padding" color="light">
+  <h1><strong>Hi Mike <br> Where do you want to go?</strong></h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item>
+    <ion-icon name="location-sharp" slot="start"></ion-icon>
+    <ion-label position="floating">Input Destination</ion-label>
+    <ion-input type="text" ></ion-input>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <h2>Daily Scenary</h2>
+    </ion-col>
+    <ion-col size="auto">
+    <ion-text color="primary">
+        <p class="p1">Updated</p>
+      </ion-text>
+    </ion-col>
+    <ion-col size="auto" class="ml-auto"> <!--para deixar o more no canto-->
+      <ion-button fill="clear" color="medium">
+        More
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <img src="https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Cidade">
+    <ion-card-header>
+           <ion-row>
+        <ion-col>
+          <ion-card-subtitle>2018.9.17</ion-card-subtitle>
+          <ion-card-title><strong>New York, United States</strong></ion-card-title>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-row>
+            <ion-avatar class="small">
+              <img src="https://randomuser.me/api/portraits/men/40.jpg"/>
+            </ion-avatar>
+             <ion-avatar class="small">
+              <img src="https://randomuser.me/api/portraits/women/78.jpg"/>
+            </ion-avatar>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-row class="icon-align-items-center">
+    <ion-col size="auto">
+      <h2>City</h2>
+    </ion-col>
+  
+  <ion-col size="auto">
+    <ion-badge >
+      Hot
+    </ion-badge>
+  </ion-col>
+
+  <ion-col size="auto" class="ml-auto">
+    <ion-button fill="clear" color="medium">
+      More
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+  <ion-row>
+    <ion-col  class="image-card">
+        <img src="https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Turkey">
+        <p>Turkey</p>
+          </ion-col>
+    <ion-col  class="image-card">
+            <img src="https://images.pexels.com/photos/109629/pexels-photo-109629.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Germany">
+        <p>Germany</p>
+        </ion-col>
+    <ion-col  class="image-card">
+          <img src="https://images.pexels.com/photos/1071188/pexels-photo-1071188.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Poland">
+        <p>Poland</p>
+    </ion-col>
+  </ion-row>
+  
+  <h2>Master</h2>
+
+  <ion-row class="icon-align-items-center">
+    <ion-col  size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/63.jpg"/>
+      </ion-avatar>
+    </ion-col>
+    <ion-col  size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/men/18.jpg">
+      </ion-avatar>
+    </ion-col>
+    <ion-col  size="auto">
+      <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/men/59.jpg"/>
+      </ion-avatar>
+    </ion-col>
+     <ion-col  size="auto">
+       <ion-avatar class="medium">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg"/>
+           </ion-avatar>
+     </ion-col>
+  <ion-col  size="auto">
+    <ion-button fill="clear">
+      Join them
+    </ion-button>
+  </ion-col>
+</ion-row>
+
 </ion-content>
