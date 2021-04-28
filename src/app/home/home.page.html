@@ -18,3 +18,76 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>
+<!--Faça um app, com a interface que preferir, que:
+Mostre o valor atual de um contador
+Mostre o valor máximo que o contador já atingiu
+Tenha um botão para aumentar este contador em 1
+Tenha um botão para reduzir este contador em 1
+Tenha um botão para resetar para 0
+Obs: o contador nunca pode car negativo! -->
+<ion-header class="ion-text-center">
+  <ion-toolbar color = "dark">
+    <ion-title>
+      Contador
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <h1 class="counter"> {{counter}}</h1>
+  <h2>Valor máximo {{maxCounter}}</h2>
+
+  <ion-row class = "ion-justify-content-center">
+    <ion-col size = "auto">
+      <ion-button (click)="decrement()" color = "danger">
+        <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size = "auto">
+      <ion-button (click)="reset()" color = "primary">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col size = "auto">
+      <ion-button (click)="increment()" color = "success">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row> 
+
+  <ion-header class = "ion-no-padding">
+    <ion-toolbar color = "dark">
+      <ion-title>
+        Conta Bancária
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+    <h1>Saldo</h1>
+    <h2 class="counter"> {{counter}}</h2>
+
+    <ion-row class = "ion-justify-content-center">
+      <ion-col size = "auto">
+        <ion-button (click)="decrementConta()" color = "danger">
+          Sacar
+        </ion-button>
+      </ion-col>
+      <ion-col size = "auto">
+        <ion-button (click)="resetConta()" color = "primary">
+          Sacar tudo
+        </ion-button>
+      </ion-col>
+      <ion-col size = "auto">
+        <ion-button (click)="incrementConta()" color = "success">
+         Depositar
+        </ion-button>
+      </ion-col>
+    </ion-row> 
+
+  <ion-item>
+    <ion-label position="floating">Valor a ser depositado</ion-label>
+    <ion-input type="number"  [(ngModel)]="selectedValue"></ion-input>
+  </ion-item>
+
+
+</ion-content>
