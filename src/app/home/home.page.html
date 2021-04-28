@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Blank
@@ -6,15 +6,110 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!--template binding-->
+    <h1> O valor do contador é X</h1> 
+  <!--só que no lugar do X eu quero o valor-->
+    <h1>O valor do contador é {{contador}}</h1> 
+  <!--assim vincula o valor da função-->
+    <h2>O contador está muito {{contador < 20 ? 'baixo' : 'alto'}}</h2> 
+        
+  <!-- se contador estiver com um valor menor que 20 vai falar que esta muito baixo, maior que 20 muito alto-->
+  <p>Dados da Isabella {{Isabella | json}}</p> 
+  <!--para exibir dados mais complexos-->
+  <ion-progress-bar value="0.2" color="primary"></ion-progress-bar> 
+  <!-- barrinha que vai preenchendo conforme a % aumenta-->
+  <br> <!--pula uma linha-->
+        
+  <!--Property Binding-->
+  <ion-progress-bar [value]="contador /500" color="primary"></ion-progress-bar>
+        
+  <!-- pega o valor do contador, sem transformar para string, mantém ele como ele vier, no caso, número-->
+        
+  <!-- Property Binding / Template Binding-->
+  <ion-text [color] = "contador > 0 ? 'primary' : 'danger' ">
+     <h1>O seu saldo é {{contador}}</h1>
+  </ion-text>
+  <!--Se o contador for > 0 vai exibir a mensagem azul, se for < 0 vai exibir a mensagem em vermelho-->
+        
+      <!--Event Bining-->
+        <ion-button (click)="depositar()">
+            Clique para depositar
+          </ion-button>
+        
+      <!--um botão que quando clicar vai "depositar, ou seja, vai incrementar o contador"-->
+
+      <!--Two way data Binding-->
+      <ion-input type="number" [(ngModel)]="currentValue"></ion-input> <!--Com o ngModel é possível o usuário escrever um número que será-->
+      <ion-button (click)="incrementValue()">                          <!-- o valor atual e a partir dele vai ser incrementado-->
+      <p>O valor atual é {{currentValue}}</p>
+        Incrementar
+      </ion-button>
+
+      <!--Campo de texto, é um input, pra textos pequenos-->
+      <ion-item>
+        <ion-label position="floating">Campo de texto</ion-label>
+        <ion-input></ion-input>
+        </ion-item>
+
+        <!--Area para textos maiores-->
+        <ion-item>
+          <ion-label position="floating">TextArea</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item> 
+
+        <!--Checkbox é uma lista, que podemos escolher algumas opções-->
+          <ion-item>
+            <ion-label>Jon Snow</ion-label>
+            <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Daenerys Targaryen</ion-label>
+            </ion-item>
+            <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Arya Stark</ion-label>
+            </ion-item>
+            <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>Tyrion Lannister</ion-label>
+            </ion-item>
+
+        <!--Toggle - recebe um booleano -->
+          <ion-list>
+            <ion-item>
+              <ion-label>Aceito os termos</ion-label>
+              <ion-toggle [(ngModel)]="accept"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        
+        <!--Radio - parece com o CheckBox, mas só dá pra selecionar 1 -->
+          <p>Método Selecionado:</p>
+          <ion-radio-group>
+            <ion-item>
+              <ion-label>Dinheiro</ion-label>
+              <ion-radio slot="start" value="cash"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label>Crédito</ion-label>
+              <ion-radio slot="start" value="credit"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Débito</ion-label>
+              <ion-radio slot="start" value="debit"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          
+          <!--Select - só da pra selecionar 1 opção, mas salta uma caixinha na tela com as opções-->
+          <ion-item>
+            <ion-label>Método Selecionado</ion-label>
+            <ion-select placeholder="Select One">
+              <ion-select-option value="cash"> Dinheiro </ion-select-option>
+              <ion-select-option value="debit"> Débito </ion-select-option>
+              <ion-select-option value="credit"> Crédito </ion-select-option>
+            </ion-select>
+          </ion-item>
 </ion-content>

@@ -7,6 +7,23 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public contador = 25;
 
+  public Isabella = {
+    nome: "isabella",
+    ocupação: "Estagiária",
+    idade: 21
+  }
+
+  public depositar() {
+    this.contador += 50;
+  }
+
+
+  public currentValue = 12;
+
+  constructor() { }
+  public incrementValue() {
+    this.currentValue++
+  }
 }
