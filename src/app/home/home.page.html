@@ -1,20 +1,68 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <!-- <ion-toolbar color="primary">
     <ion-title>
-      Blank
+      My To-Do List
     </ion-title>
+  </ion-toolbar> -->
+  <ion-toolbar color="light">
+    <ion-item color="light">
+      <ion-label position="floating">Add Task</ion-label>
+      <!--Nome do campo de digitação-->
+      <ion-input type="text" [(ngModel)]="newTaskName"></ion-input>
+      <!--campo de digitação para inserir as novas tarefas-->
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="addTask()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!--Botão que adiciona a tarefa à lista, chama a função criada no Ts-->
+  </ion-toolbar>
+  <ion-progress-bar [value]="completedPercentage"></ion-progress-bar>
+  <!--Barrinha de conclusão, ela vai completar conforme a porcentagem de tarifas completas aumentar-->
+
+  <!--Ion segment - são as abinhas de to do, done, all-->
+  <!--E foi colocado dentro do header para ela ficar fixa quando rolarmos a tela-->
+  <ion-segment [(ngModel)]="currentFilter" (ionChange)="updateFilter()">
+  <!--funciona como um filtro-->
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="done">
+      <ion-label>Done</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="todo">
+      <ion-label>To-Do</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!--uma toolbar para busca-->
+  <ion-toolbar color="light">
+    <ion-searchbar placeholder="Filter Tasks" [(ngModel)]="currentSearch" (ionChange)="updateFilter()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list *ngIf="tasks.length > 0; else emptyTasks">
+  <!--Se o tamanho da "lista" de tarefas for maior que 0, ou seja não estiver vazia-->
+    <ion-item *ngFor="let task of filteredTasks">
+      <ion-checkbox slot="start" [(ngModel)]="task.done" (ionChange)="calculateCompletedPercentage()"></ion-checkbox>
+      <!--Cria um check na frente da tarefa, para marcar se ela foi realzida ou não-->
+      <!--toda vez que alguém clicar como concluída uma tarefa, ele vai chamar a função qur calcula a porcentagem e exibir atualizada, no ion progress bar-->
+      <ion-label>{{task.name}}</ion-label>
+      <!--Cria um campo com o nome da tarefa (inserido no input)-->
+      <ion-button slot="end" fill="clear" color="danger" (click)="removeTask(task.id)">
+      <!--botão para excluir a tarefa, ele vai remover verificando o nome da tarefa-->
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ng-template #emptyTasks>
+  <!--Se o tamanho da "lista" de tarefas não for maior que 0, ou seja, se ela estiver vazia-->
+    <ion-text color="medium" class="ion-text-center">
+      <p>Add tasks using the input above</p>
+      <!--Mostra esse texto-->
+    </ion-text>
+  </ng-template>
 </ion-content>
