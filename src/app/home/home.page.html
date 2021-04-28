@@ -1,20 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header class="ion-no-padding">
+  <ion-toolbar color="dark">
     <ion-title>
-      Blank
+      Controle de Gastos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <h1 class="counter"> {{counter | currency}}</h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  
+    <ion-row class="ion-aling-items-center">
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Valor a ser depositado</ion-label>
+          <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="auto
+      ">
+        <ion-button (click)="deposit()" color="dark">
+          <ion-icon slot="icon-only" name="cash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-list>
+      <ion-item *ngFor="let transaction of transactions">
+        <ion-label>
+          <h2>{{transaction.amount | currency}}</h2> <!--currency -> pipe que coloca o $-->
+          <p>{{transaction.date | date: 'short'}}</p> <!--pipe de date, fomata a data-->
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
 </ion-content>

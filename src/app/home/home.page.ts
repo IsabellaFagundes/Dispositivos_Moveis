@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Transaction {
+  date: Date;
+  amount: number;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +12,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public counter = 0;
+  public selectedValue = 0;
+  public transactions: Transaction [] = [];
+
+  public deposit(){
+    this.counter+= this.selectedValue;
+    this.transactions.unshift({ //insere um novo elemento no começo da lista
+      amount: this.selectedValue,
+      date: new Date()
+    })
+    this.selectedValue = 0;
+  }
+
 
 }
