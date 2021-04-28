@@ -18,13 +18,17 @@
           <ion-input type="number" [(ngModel)]="selectedValue"></ion-input>
         </ion-item>
       </ion-col>
-      <ion-col size="auto
-      ">
+      <ion-col size="auto">
         <ion-button (click)="deposit()" color="dark">
           <ion-icon slot="icon-only" name="cash"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
+
+    <ion-button (click)="confirmWipe()" color="danger" expand="block">
+      <ion-icon slot="start" name="trash-bin"></ion-icon>
+      Sacar tudo
+    </ion-button>
 
     <ion-list>
       <ion-item *ngFor="let transaction of transactions">
