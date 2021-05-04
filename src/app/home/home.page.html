@@ -1,13 +1,22 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="feed">
-      <ion-icon name="home"></ion-icon>
-    </ion-tab-button>
-    <ion-tab-button tab="activity">
-      <ion-icon name="heart"></ion-icon>
-    </ion-tab-button>
-    <ion-tab-button tab="profile">
-      <ion-icon name="person-circle"></ion-icon>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--
+  <ion-button routerLink="/edit/1"> Esse botão vai nos levar para a página de edição do usuário 1
+    Editar usuário 1
+  </ion-button>
+  <ion-button routerLink="/edit/2"> 
+    Editar usuário 2
+  </ion-button>
+  -->
+
+  <ion-list> <!--Lista de usuários-->
+    <ion-item *ngFor="let user of users" [routerLink]="['/edit', user.id]">
+      <ion-label>{{user.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

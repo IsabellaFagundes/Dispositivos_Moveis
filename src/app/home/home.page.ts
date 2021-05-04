@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public users = [
+    {
+      name: 'Isabella',
+      id: 1
+    },
+    {
+      name: 'Patrick',
+      id: 2
+    }
+  ]
+
   constructor() {}
 
 }
