@@ -9,23 +9,31 @@ const routes: Routes = [
     children: [
       {
         path: 'feed',
-        loadChildren: () => import('./feed/feed.module').then( m => m.FeedPageModule)
+        loadChildren: () => import('./feed/feed.module').then(m => m.FeedPageModule)
       },
       {
         path: 'activity',
-        loadChildren: () => import('./activity/activity.module').then( m => m.ActivityPageModule)
+        loadChildren: () => import('./activity/activity.module').then(m => m.ActivityPageModule)
       },
       {
         path: 'profile',
-        loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-      }
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then(m => m.SearchPageModule)
+      },
+      {
+        path: '',
+        redirectTo: 'feed',
+        pathMatch: 'full'
+      },
     ]
-  },
- 
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }
