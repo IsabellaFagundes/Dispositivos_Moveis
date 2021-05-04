@@ -15,7 +15,8 @@
   -->
 
   <ion-list> <!--Lista de usuários-->
-    <ion-item *ngFor="let user of users" [routerLink]="['/edit', user.id]">
+    <ion-item *ngFor="let user of users" [routerLink]="['/edit', user.id]"> 
+      <!--no routerLink eu estou transformando a lista de usuários em links, pegando o user.id de cada um deles-->
       <ion-label>{{user.name}}</ion-label>
     </ion-item>
   </ion-list>
