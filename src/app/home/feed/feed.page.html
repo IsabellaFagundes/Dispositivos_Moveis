@@ -26,6 +26,8 @@
     </ion-slide>
   </ion-slides>
 
-  <app-photo-card *ngFor="let post of posts" [id]="post.i"></app-photo-card>
+  <!--chama o componente photo-card-->
+  <app-photo-card *ngFor="let post of posts" [id]="post.i"></app-photo-card> <!--o id é o indice do post-->
+
 
 </ion-content>

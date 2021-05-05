@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PhotoCardComponent implements OnInit {
 
-  @Input() public id: number;
+  @Input() public id: number; //tenho o id e recebo ele como imput, é uma entrada
 
   constructor() { }
 
