@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Produtos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list> <!--lista de predutos-->
+    <ion-item *ngFor="let product of products" [routerLink]="['edit', product.id]"> <!--quando clicar no produto, abre a pagina de edição desse id-->
+      <ion-label>
+        <h2>{{product.name}}</h2>
+        <p>{{product.price | currency}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!--botão para cadicionar produtos-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/home/create">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
